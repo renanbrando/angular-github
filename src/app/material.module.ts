@@ -6,7 +6,9 @@ import {
   MatToolbarModule,
   MatInputModule, 
   MatSelectModule,
-  MatIconModule
+  MatIconModule,
+  MatGridListModule,
+  MatBadgeModule
 } from '@angular/material';
 
 @NgModule({
@@ -20,7 +22,9 @@ import {
     MatToolbarModule,
     MatInputModule, 
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule,
+    MatBadgeModule
   ]
 })
 

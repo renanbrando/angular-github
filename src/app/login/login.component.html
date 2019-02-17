@@ -1,26 +1,28 @@
-<!--<mat-card class="example-card">
-   <mat-card-header>
-     <mat-card-title>Login</mat-card-title>
-   </mat-card-header>
-   <mat-card-content>
-     <form class="example-form">
-       <table class="example-full-width" cellspacing="0">
-         <tr>
-           <td>
-             <mat-form-field class="example-full-width">
-             <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-             </mat-form-field>
-           </td>
-         </tr>
-         <tr>
-         <td><mat-form-field class="example-full-width">
-           <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
-         </mat-form-field></td>
-       </tr></table>
-     </form>
-     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-   </mat-card-content>
-   <mat-card-actions>
-     <button mat-raised-button (click)="login()" color="primary">Login</button>
-   </mat-card-actions>
- </mat-card>-->
+<div class="container mt-5">
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxLayout="column" fxFlex="50">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Welcome to Angular Github</mat-card-title>
+          <mat-card-subtitle>Please provide us your github e-mail</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content fxLayout="column">
+          <form fxLayout="column">
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput [(ngModel)]="username" [formControl]="usernameFormControl" [errorStateMatcher]="matcher">
+              <mat-icon matSuffix>account_circle</mat-icon>
+              <mat-hint>Enter your github username</mat-hint>
+              <mat-error *ngIf="usernameFormControl.hasError('required')">
+                Username is required
+              </mat-error>
+            </mat-form-field>
+          </form>
+        </mat-card-content>
+        <mat-card-actions fxLayout="column">
+          <button mat-flat-button color="primary" (click)="login()" [disabled]="usernameFormControl.invalid">Login with Github</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
