@@ -1,10 +1,26 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>{{appTitle}}</span>
-    <span class="toolbar-spacer"></span>
-    <a mat-button class="toolbar-icon" href="https://github.com/renanbrando/angular-github" target="_blank">SEE GIT</a>
-    <button mat-button (click)="logout()">
-      <mat-icon class="toolbar-icon">exit_to_app</mat-icon>
-    </button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/home']"><mat-icon mat-list-icon>home</mat-icon>Home</a>
+      <a mat-list-item [routerLink]="['/profile']"><mat-icon mat-list-icon>account_circle</mat-icon>Profile</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="mx-3">{{appTitle}}</span>
+        <span class="toolbar-spacer"></span>
+        <a mat-button class="toolbar-icon" href="https://github.com/renanbrando/angular-github" target="_blank">SEE GIT</a>
+        <button mat-button (click)="logout()">
+          <mat-icon class="toolbar-icon">exit_to_app</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

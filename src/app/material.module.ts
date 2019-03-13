@@ -8,23 +8,28 @@ import {
   MatSelectModule,
   MatIconModule,
   MatGridListModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatListModule,
+  MatSidenavModule
 } from '@angular/material';
 
 @NgModule({
   imports: [
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule
   ],
   exports: [
-   MatButtonModule,
+    MatButtonModule,
     MatCardModule,
     MatToolbarModule,
     MatInputModule, 
     MatSelectModule,
     MatIconModule,
+    MatListModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSidenavModule
   ]
 })
 

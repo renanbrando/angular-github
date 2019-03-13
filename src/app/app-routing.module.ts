@@ -13,6 +13,11 @@ const routes: Routes = [
     canLoad: [AuthService]
   },
   {
+    path: 'profile',
+    loadChildren: './profile/profile.module#ProfileModule',
+    canLoad: [AuthService]
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
